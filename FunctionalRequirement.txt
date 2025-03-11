@@ -1,0 +1,51 @@
+Roles and Permissions:
+1. Employee should
+   - View their profile  
+   - Check onboarding task status  
+   - Raise queries/tickets  
+   - Upload required documents  
+   - Login to the portal
+   
+2. Admin (HR/Onboarding Team) should
+   - Create and manage onboarding workflows  
+   - Assign tasks to departments and department users  
+   - Track onboarding progress  
+   - Change the status of tasks  
+   - Respond to employee queries
+
+Department Users (HR, IT, Finance, etc.) should
+   - View assigned onboarding tasks  
+   - Update task status  
+   - Add comments or escalate issues  
+
+Main Menus & Pages:
+Employee Portal (For Employees)
+1. Dashboard – Overview of assigned onboarding tasks & status  
+2. My Profile – View personal details (Read-only)  
+3. My Onboarding Tasks – List of assigned tasks with progress tracking  
+4. Documents Upload – Upload required files (ID proof, tax forms, etc.)  
+5. Raise a Query – Submit onboarding-related queries  
+6. Notifications – Task reminders, document submission alerts  
+7. Logout  
+
+Admin Portal (For Admin/HR)
+1. Dashboard – Overview of all employees’ onboarding status  
+2. Employee Management  
+   - Add, Edit, Delete employee records  
+   - Assign onboarding tasks manually (if required)  
+3. Onboarding Workflow Management  
+   - Create default onboarding task templates (for different roles)  
+   - Assign tasks to departments/users  
+4. Task Status Management  
+   - Change onboarding task status (Pending, In Progress, Completed)  
+   - Add remarks if needed  
+5. Employee Queries – View & respond to queries  
+6. Reports & Analytics – Generate reports on onboarding status  
+7. Logout  
+
+Department User Portal (For HR, IT, Finance, etc.)
+1. Dashboard – Assigned tasks summary  
+2. Task List – View tasks assigned to the department  
+3. Update Task Status – Mark tasks as completed & add remarks  
+4. Escalate Issues – Notify admin in case of blockers  
+5. Logout  
