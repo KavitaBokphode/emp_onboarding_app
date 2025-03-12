@@ -9,115 +9,114 @@
 
 <style>
     /* General Styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
 
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-/* Header */
-h1 {
-    color: #333;
-}
+    /* Header */
+    h1 {
+        color: #333;
+    }
 
-/* Filters */
-.filters {
-    margin-bottom: 15px;
-}
+    /* Filters */
+    .filters {
+        margin-bottom: 15px;
+    }
 
-select {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-}
+    select {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
 
-/* Task Table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-th {
-    background-color: #007BFF;
-    color: white;
-}
-
-/* Task Form */
-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-input, select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* Buttons */
-button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-/* Add Task Button */
-button[type="submit"] {
-    background-color: #28a745;
-    color: white;
-}
-
-/* Action Buttons */
-button:nth-child(1) {
-    background-color: #ffc107;
-    color: black;
-}
-
-button:nth-child(2) {
-    background-color: #dc3545;
-    color: white;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
+    /* Task Table */
     table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th, td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th {
+        background-color: #007BFF;
+        color: white;
+    }
+
+    /* Task Form */
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    input, select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Buttons */
+    button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
         font-size: 14px;
     }
 
-    form {
-        flex-direction: column;
+    button:hover {
+        opacity: 0.8;
     }
-}
 
+    /* Add Task Button */
+    button[type="submit"] {
+        background-color: #28a745;
+        color: white;
+    }
+
+    /* Action Buttons */
+    button:nth-child(1) {
+        background-color: #ffc107;
+        color: black;
+    }
+
+    button:nth-child(2) {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+        table {
+            font-size: 14px;
+        }
+
+        form {
+            flex-direction: column;
+        }
+    }
 </style>
 
 <body>
@@ -174,90 +173,98 @@ button:nth-child(2) {
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            loadTasks();
+        });
 
-document.addEventListener("DOMContentLoaded", function() {
-    loadTasks();
-});
+        let tasks = [
+            { name: "Manager", assignedTo: "Mr. Sagar", department: "HR", priority: "High", status: "Pending" },
+            { name: "HR Manager", assignedTo: "Mrs. Vasudha", department: "HR", priority: "Medium", status: "In Progress" },
+            { name: "Finance", assignedTo: "Mr. Prasad", department: "Finance", priority: "Medium", status: "In Progress" },
+            { name: "Full Stack Developer", assignedTo: "Mr. Kunal", department: "IT", priority: "Medium", status: "In Progress" },
+            { name: "Software Developer", assignedTo: "Ms. Divya", department: "IT", priority: "Medium", status: "In Progress" },
+            { name: "IT Security", assignedTo: "Mr. Devendra", department: "IT", priority: "Medium", status: "In Progress" },
+            { name: "SAP", assignedTo: "Mr. Mahesh", department: "SAP", priority: "Medium", status: "In Progress" },
+        ];
 
-let tasks = [
-    { name: "Set up Laptop", assignedTo: "John Doe", priority: "High", status: "Pending" },
-    { name: "Configure VPN", assignedTo: "Alice", priority: "Medium", status: "In Progress" }
-];
+        // Load Tasks into Table
+        function loadTasks() {
+            let tableBody = document.getElementById("taskTable");
+            tableBody.innerHTML = ""; 
 
-// Load Tasks into Table
-function loadTasks() {
-    let tableBody = document.getElementById("taskTable");
-    tableBody.innerHTML = ""; 
+            tasks.forEach((task, index) => {
+                let row = `<tr>
+                    <td>${task.name}</td>
+                    <td>${task.assignedTo}</td>
+                    <td>${task.department}</td>
+                    <td>${task.priority}</td>
+                    <td>${task.status}</td>
+                    <td>
+                        <button onclick="updateStatus(${index})">🔄 Update Status</button>
+                        <button onclick="deleteTask(${index})">🗑️ Delete</button>
+                    </td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
 
-    tasks.forEach((task, index) => {
-        let row = `<tr>
-            <td>${task.name}</td>
-            <td>${task.assignedTo}</td>
-            <td>${task.priority}</td>
-            <td>${task.status}</td>
-            <td>
-                <button onclick="updateStatus(${index})">🔄 Update Status</button>
-                <button onclick="deleteTask(${index})">🗑️ Delete</button>
-            </td>
-        </tr>`;
-        tableBody.innerHTML += row;
-    });
-}
+        // Add Task
+        document.getElementById("taskForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from refreshing
 
-// Add Task
-function addTask() {
-    let newTask = {
-        name: document.getElementById("taskName").value,
-        assignedTo: document.getElementById("assignedTo").value,
-        priority: document.getElementById("priority").value,
-        status: "Pending"
-    };
+            let newTask = {
+                name: document.getElementById("taskName").value,
+                assignedTo: document.getElementById("assignedTo").value,
+                department: document.getElementById("department").value,
+                priority: document.getElementById("priority").value,
+                status: document.getElementById("status").value
+            };
 
-    tasks.push(newTask);
-    loadTasks();
-    document.getElementById("taskForm").reset();
-}
+            tasks.push(newTask);
+            loadTasks();
+            document.getElementById("taskForm").reset();
+        });
 
-// Update Task Status
-function updateStatus(index) {
-    if (tasks[index].status === "Pending") {
-        tasks[index].status = "In Progress";
-    } else if (tasks[index].status === "In Progress") {
-        tasks[index].status = "Completed";
-    }
-    loadTasks();
-}
+        // Update Task Status
+        function updateStatus(index) {
+            if (tasks[index].status === "Pending") {
+                tasks[index].status = "In Progress";
+            } else if (tasks[index].status === "In Progress") {
+                tasks[index].status = "Completed";
+            }
+            loadTasks();
+        }
 
-// Delete Task
-function deleteTask(index) {
-    tasks.splice(index, 1);
-    loadTasks();
-}
+        // Delete Task
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            loadTasks();
+        }
 
-// Filter Tasks
-function filterTasks() {
-    let statusFilter = document.getElementById("statusFilter").value;
-    let filteredTasks = tasks.filter(task => statusFilter === "All" || task.status === statusFilter);
+        // Filter Tasks
+        function filterTasks() {
+            let statusFilter = document.getElementById("statusFilter").value;
+            let filteredTasks = tasks.filter(task => statusFilter === "All" || task.status === statusFilter);
 
-    let tableBody = document.getElementById("taskTable");
-    tableBody.innerHTML = ""; 
+            let tableBody = document.getElementById("taskTable");
+            tableBody.innerHTML = ""; 
 
-    filteredTasks.forEach((task, index) => {
-        let row = `<tr>
-            <td>${task.name}</td>
-            <td>${task.assignedTo}</td>
-            <td>${task.priority}</td>
-            <td>${task.status}</td>
-            <td>
-                <button onclick="updateStatus(${index})">🔄 Update Status</button>
-                <button onclick="deleteTask(${index})">🗑️ Delete</button>
-            </td>
-        </tr>`;
-        tableBody.innerHTML += row;
-    });
-}
-
-
+            filteredTasks.forEach((task, index) => {
+                let row = `<tr>
+                    <td>${task.name}</td>
+                    <td>${task.assignedTo}</td>
+                    <td>${task.department}</td>
+                    <td>${task.priority}</td>
+                    <td>${task.status}</td>
+                    <td>
+                        <button onclick="updateStatus(${index})">🔄 Update Status</button>
+                        <button onclick="deleteTask(${index})">🗑️ Delete</button>
+                    </td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
     </script>
+
 </body>
 </html>

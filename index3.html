@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Onboarding Table</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .filter-section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center mb-4">🚀 Employee Onboarding Table</h2>
+
+    <!-- Filters & Search -->
+    <div class="row filter-section">
+        <div class="col-md-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="🔍 Search Employee...">
+        </div>
+        <div class="col-md-4">
+            <select id="statusFilter" class="form-control">
+                <option value="All">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary w-100" onclick="filterTable()">Apply Filters</button>
+        </div>
+    </div>
+
+    <!-- Employee Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Joining Date</th>
+                <th>Onboarding Status</th>
+                <th>Mentor</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTable">
+            <!-- Dynamic Employee Data -->
+        </tbody>
+    </table>
+</div>
+
+<!-- JavaScript -->
+<script>
+    // Sample Employee Data
+    let employees = [
+        { id: "E101", name: "Mr.Sagar", department: "IT", designation: "Manager", joiningDate: "2022-03-01", status: "Pending", mentor: "Michale" },
+        { id: "E102", name: "Mrs.Vasudha", department: "HR", designation: "HR Manager", joiningDate: "2024-02-15", status: "In Progress", mentor: "Rahul" },
+        { id: "E103", name: "Ms.Aishwarya", department: "IT", designation: "SAP", joiningDate: "2023-01-10", status: "Completed", mentor:"Neha" },
+        { id: "E104", name: "Ms.Harita", department: "IT", designation: "SAP PO", joiningDate: "2022-03-05", status: "Pending", mentor: "Neha" },
+        { id: "E105", name: "Ms.Aaditi", department: "IT", designation: "SAP", joiningDate: "2023-02-20", status: "In Progress", mentor: "Neha" }
+    ];
+
+    // Function to Load Employee Data
+    function loadTable() {
+        let tableBody = document.getElementById("employeeTable");
+        tableBody.innerHTML = "";
+
+        employees.forEach(emp => {
+            let row = `<tr>
+                <td>${emp.id}</td>
+                <td>${emp.name}</td>
+                <td>${emp.department}</td>
+                <td>${emp.designation}</td>
+                <td>${emp.joiningDate}</td>
+                <td>${emp.status}</td>
+                <td>${emp.mentor}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+    }
+
+    // Function to Filter Table
+    function filterTable() {
+        let searchValue = document.getElementById("searchInput").value.toLowerCase();
+        let statusValue = document.getElementById("statusFilter").value;
+
+        let filteredEmployees = employees.filter(emp => 
+            (emp.name.toLowerCase().includes(searchValue) || emp.id.toLowerCase().includes(searchValue)) &&
+            (statusValue === "All" || emp.status === statusValue)
+        );
+
+        let tableBody = document.getElementById("employeeTable");
+        tableBody.innerHTML = "";
+
+        filteredEmployees.forEach(emp => {
+            let row = `<tr>
+                <td>${emp.id}</td>
+                <td>${emp.name}</td>
+                <td>${emp.department}</td>
+                <td>${emp.designation}</td>
+                <td>${emp.joiningDate}</td>
+                <td>${emp.status}</td>
+                <td>${emp.mentor}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+    }
+
+    // Load Table on Page Load
+    document.addEventListener("DOMContentLoaded", loadTable);
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
