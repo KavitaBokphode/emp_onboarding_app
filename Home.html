@@ -12,17 +12,36 @@
 </head>
 <body>
     
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
-        <i data-feather="home"></i> SFS Group India Pvt Ltd.
-    </a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-    <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="#"><i data-feather="log-out"></i> Sign out</a>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-3">
+        <div class="container-fluid">
+            <!-- Company Logo & Name -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i data-feather="home" class="me-2"></i>
+                <span>SFS Group India Pvt Ltd.</span>
+            </a>
+    
+            <!-- Search Bar -->
+            <form class="d-none d-md-flex flex-grow-1 mx-3">
+                <input class="form-control rounded-pill" type="search" placeholder="Search..." aria-label="Search">
+            </form>
+    
+            <!-- Profile Dropdown -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i data-feather="user" class="me-2"></i> Profile
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                        <li><a class="dropdown-item" href="#"><i data-feather="user" class="me-2"></i> My Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i data-feather="settings" class="me-2"></i> Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#"><i data-feather="log-out" class="me-2"></i> Sign Out</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </div>
-</header>
+    </header>
+    
 
 <div class="container-fluid">
     <div class="row">
@@ -34,27 +53,27 @@
                         <a class="nav-link active" href="#"><i data-feather="bar-chart-2"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i data-feather="grid"></i> Overview & Summary Cards</a>
+                        <a class="nav-link" href="profile.html"><i data-feather="grid"></i>My Profile </a>
                     </li>
                     <li class="nav-item">
                       <!-- link for index3.html -->
-                        <a class="nav-link" href="index3.html"><i data-feather="users"></i> Employee Onboarding Table</a>
+                        <a class="nav-link" href="emp_table.html"><i data-feather="users"></i> Employee Onboarding Table</a>
                     </li>
                     <li class="nav-item">
                       <!-- link of index2.html  -->
-                        <a class="nav-link" href="index2.html"><i data-feather="check-circle"></i> Task Management</a>
+                        <a class="nav-link" href="emp_task.html"><i data-feather="check-circle"></i> Employee Onboarding Tasks</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i data-feather="pie-chart"></i> Department-Wise Progress Chart</a>
+                        <a class="nav-link" href="#"><i data-feather="pie-chart"></i> Document Upload</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i data-feather="clock"></i> Task Deadline Reminders</a>
+                        <a class="nav-link" href="#"><i data-feather="clock"></i> Raise a Query</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i data-feather="calendar"></i> Employee Joining Timeline</a>
+                        <a class="nav-link" href="#"><i data-feather="calendar"></i> Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i data-feather="bell"></i> Notifications & Alerts</a>
+                        <a class="nav-link" href="#"><i data-feather="bell"></i> Logout</a>
                     </li>
                 </ul>
             </div>
