@@ -7,17 +7,16 @@
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="dashboard.css" rel="stylesheet">
+    <link href="Home.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 <body>
     
     <header class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-3">
-        <div class="container-fluid">
-            <!-- Company Logo & Name -->
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+           
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <i data-feather="home" class="me-2"></i>
-                <span>SFS Group India Pvt Ltd.</span>
+                <span class="text-white fw-bold ms-2">SFS Group India Pvt Ltd.</span>
             </a>
     
             <!-- Search Bar -->
@@ -43,41 +42,28 @@
     </header>
     
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar Navigation -->
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><i data-feather="bar-chart-2"></i> Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.html"><i data-feather="grid"></i>My Profile </a>
-                    </li>
-                    <li class="nav-item">
-                      <!-- link for index3.html -->
-                        <a class="nav-link" href="emp_table.html"><i data-feather="users"></i> Employee Onboarding Table</a>
-                    </li>
-                    <li class="nav-item">
-                      <!-- link of index2.html  -->
-                        <a class="nav-link" href="emp_task.html"><i data-feather="check-circle"></i> Employee Onboarding Tasks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i data-feather="pie-chart"></i> Document Upload</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i data-feather="clock"></i> Raise a Query</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i data-feather="calendar"></i> Notifications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i data-feather="bell"></i> Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky">
+                    <!-- SFS Logo at the top of Sidebar -->
+                    <div class="text-center py-3 border-bottom">
+                        <img src="../emp_onboarding_app/images/sfslogo.png" alt="Company Logo" class="img-fluid" style="height: 80px; width: auto; margin:10px;">
+                   <p><b>SFS Group India Pvt Ltd.</b></p>
+                    </div>
+                    <ul class="nav flex-column mt-3">
+                        <li class="nav-item"><a class="nav-link active" href="#"><i data-feather="bar-chart-2"></i> Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="profile.html"><i data-feather="grid"></i> My Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="emp_table.html"><i data-feather="users"></i> Employee Onboarding Table</a></li>
+                        <li class="nav-item"><a class="nav-link" href="emp_task.html"><i data-feather="check-circle"></i> Employee Onboarding Tasks</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i data-feather="pie-chart"></i> Document Upload</a></li>
+                        <li class="nav-item"><a class="nav-link" href="raisequery.html"><i data-feather="clock"></i> Raise a Query</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i data-feather="calendar"></i> Notifications</a></li>
+                        <li class="nav-item"><a class="nav-link text-danger" href="#"><i data-feather="bell"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
 
         <!-- Main Content Area -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -133,7 +119,7 @@
     feather.replace();
 </script>
 
-<script src="dashboard.js"></script>
+<script src="Home.js"></script>
 
 </body>
 </html>

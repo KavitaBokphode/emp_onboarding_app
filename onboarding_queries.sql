@@ -32,3 +32,8 @@ CREATE TABLE queries (
     status VARCHAR(20) DEFAULT 'Open',
     created_at TIMESTAMP DEFAULT NOW()
 );
+
+
+
+
+
