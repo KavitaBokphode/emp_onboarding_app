@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications | Onboarding System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <style>
+        .notification-item.unread {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        .notification-item {
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .notification-item:hover {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>Onboarding Notifications</h3>
+        <div class="dropdown">
+            <button class="btn btn-primary position-relative" id="notificationBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i data-feather="bell"></i> Notifications
+                <span class="badge bg-danger position-absolute top-0 start-100 translate-middle" id="notificationCount">0</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm" id="notificationList">
+                <li class="dropdown-header">Recent Notifications</li>
+                <li><hr class="dropdown-divider"></li>
+                <!-- Notifications will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Notifications List -->
+    <div class="mt-4">
+        <ul class="list-group" id="fullNotificationList">
+            <!-- Notifications will be dynamically inserted here -->
+        </ul>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    feather.replace();
+
+    // Sample Notifications (These can come from the database)
+    let notifications = [
+        { id: 1, message: "Your onboarding task has been assigned.", time: "2 mins ago", unread: true },
+        { id: 2, message: "Your document has been approved.", time: "10 mins ago", unread: true },
+        { id: 3, message: "Meeting scheduled for onboarding discussion.", time: "1 hour ago", unread: false }
+    ];
+
+    function loadNotifications() {
+        let notificationList = document.getElementById("notificationList");
+        let fullNotificationList = document.getElementById("fullNotificationList");
+        let unreadCount = 0;
+
+        // Clear lists before adding new items
+        notificationList.innerHTML = '<li class="dropdown-header">Recent Notifications</li><li><hr class="dropdown-divider"></li>';
+        fullNotificationList.innerHTML = '';
+
+        notifications.forEach(notification => {
+            // Add to dropdown menu
+            let dropdownItem = document.createElement("li");
+            dropdownItem.innerHTML = `<a class="dropdown-item notification-item ${notification.unread ? 'unread' : ''}" onclick="markAsRead(${notification.id})">${notification.message} <small class="text-muted">(${notification.time})</small></a>`;
+            notificationList.appendChild(dropdownItem);
+
+            // Add to full notification list
+            let listItem = document.createElement("li");
+            listItem.classList.add("list-group-item", "notification-item");
+            if (notification.unread) listItem.classList.add("unread");
+            listItem.innerHTML = `<i data-feather="bell"></i> ${notification.message} <small class="text-muted">(${notification.time})</small>`;
+            listItem.onclick = () => markAsRead(notification.id);
+            fullNotificationList.appendChild(listItem);
+
+            if (notification.unread) unreadCount++;
+        });
+
+        // Update unread notification count badge
+        document.getElementById("notificationCount").textContent = unreadCount;
+        document.getElementById("notificationCount").style.display = unreadCount > 0 ? "inline-block" : "none";
+
+        feather.replace(); // Reapply icons
+    }
+
+    function markAsRead(id) {
+        let notification = notifications.find(n => n.id === id);
+        if (notification) notification.unread = false;
+        loadNotifications();
+    }
+
+    // Load notifications initially
+    loadNotifications();
+</script>
+
+</body>
+</html>
